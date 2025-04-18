@@ -22,6 +22,8 @@
                 <a href="{{ route('buses.index') }}" class="hover:text-gray-200">Buses</a>
                 <a href="/admin/bookings" class="hover:text-gray-200">Bookings</a>
                 <a href="/seats" class="hover:text-gray-200">Seats</a>
+                <a href="/buses_view" class="hover:text-gray-200">Book Tickets</a>
+                <a href="{{ route('logout') }}" class="hover:text-gray-200">logout</a>
             </div>
         </div>
     </nav>

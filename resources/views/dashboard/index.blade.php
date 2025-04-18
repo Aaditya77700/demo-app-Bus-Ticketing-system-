@@ -14,8 +14,8 @@
             <p class="text-3xl font-bold text-green-600">{{ $totalBookings }}</p>
         </div>
         <div class="bg-white shadow rounded p-4 text-center">
-            <h3 class="text-lg text-gray-600">Total Revenue</h3>
-            <p class="text-3xl font-bold text-yellow-600">₹90000</p>
+            <h3 class="text-lg text-gray-600">Total Routes</h3>
+            <p class="text-3xl font-bold text-yellow-600">{{$totalRoutes}}</p>
         </div>
         <div class="bg-white shadow rounded p-4 text-center">
             <h3 class="text-lg text-gray-600">Upcoming Trips</h3>

@@ -15,11 +15,14 @@ class DashboardController extends Controller
         // $totalRevenue = Booking::sum('price'); // Assuming price column exists
         $upcomingDepartures = Bus::orderBy('departure_time', 'asc')->take(5)->get();
         $recentBookings = Booking::latest()->take(5)->get();
-
+        $totalRoutes = Bus::select('route_from', 'route_to')
+        ->distinct()
+        ->count();
+    
         return view('dashboard.index', compact(
             'totalBuses',
             'totalBookings',
-            // 'totalRevenue',
+            'totalRoutes',
             'upcomingDepartures',
             'recentBookings'
         ));

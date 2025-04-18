@@ -150,7 +150,7 @@
             <!-- Header Row -->
             <tr>
                 <td class="header" colspan="2">
-                    <div class="company-name">SKYLINE EXPRESS</div>
+                    <div class="company-name">EXPRESS BUS LINES</div>
                     <div class="company-tagline">Your Comfortable Journey Partner</div>
                 </td>
             </tr>
@@ -162,7 +162,7 @@
                     <div class="route-info">
                         <div class="route-title">{{ explode(' → ', $booking->route)[0] ?? '' }} → {{ explode(' → ', $booking->route)[1] ?? '' }}</div>
                         <div class="journey-details">
-                            {{ $booking->departure_time }} | {{ date('l, F j, Y', strtotime($booking->travel_date)) }}
+                            {{ $booking->departure_time }} | {{ \Carbon\Carbon::now()->format('l, F j, Y') }}
                         </div>
                     </div>
                     
@@ -226,7 +226,6 @@
                     </div>
                 </td>
             </tr>
-            
             <!-- Footer Information Bar -->
             <tr>
                 <td class="info-bar" colspan="2">
