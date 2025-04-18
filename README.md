@@ -1,61 +1,235 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚌 Laravel Bus Ticketing System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern Laravel-based bus ticket booking system with integrated **QR code ticketing**, real-time seat selection, and a user-friendly dashboard for managing bookings and buses.
 
-## About Laravel
+## ✨ Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- 🧾 **QR Code Ticketing**: Each booking generates a unique QR code for easy ticket verification.
+- 🎫 **Seat Booking System**: Customers can choose available seats and receive a downloadable PDF ticket.
+- 📩 **Email & Phone Details**: Collect passenger contact details during booking.
+- 📄 **PDF Ticket Generation**: Auto-generated, downloadable tickets with embedded QR codes.
+- 📊 **Admin Dashboard**:
+  - View total buses and bookings
+  - See recent bookings and upcoming bus departures
+- 🚍 **Bus Management**: Admin can add, edit, and delete buses with departure times and routes.
+- 💺 **Seat Management**: Assign seats to buses and mark them as booked.
+- 🔒 **Authentication System**:
+  - Custom login/register forms
+  - Session-based authentication (no API needed)
+- 📃 **Ticket Verification**:
+  - Scan the QR code or visit a unique ticket URL for status confirmation.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📷 QR Code Example
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+> Each PDF ticket includes a QR code like this:
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 📌 Ticket
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+![Ticket Screenshot](public/images/ticket2.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+### 📌 QR code
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+![QR Code Screenshot](public/images/qr2.png)
 
-### Premium Partners
+### 📌 Verify Ticket
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+![Verify ticket Screenshot](public/images/verify-ticket2.png)
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+QR code points to: `http://127.0.0.1:8000/verify/TKT-20250418-00000`
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🖼️ Screenshots
 
-## Security Vulnerabilities
+### 📌 Login
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![login Screenshot](public/images/login.png)
 
-## License
+### 📌 Register
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+![Register Screenshot](public/images/register.png)
+
+---
+
+### 📌 Manage Buses
+
+![Buses Screenshot](public/images/buses-crud.png)
+
+---
+
+### 📌 Manage Bookings
+
+![Bookings Screenshot](public/images/bookings-crud.png)
+
+---
+
+### 📌 Manage Seats
+
+![Borrow Screenshot](public/images/seats-crud.png)
+
+---
+
+### 📌 Bus Selection
+
+![Borrow Screenshot](public/images/buses-view.png)
+
+### 📌 Seat Selection
+
+![Borrow Screenshot](public/images/seat-selection.png)
+
+---
+
+
+## 🛠️ Tech Stack
+
+- **Laravel 10+**
+- **Livewire (optional for interactivity)**
+- **Tailwind CSS**
+- **Laravel DOMPDF**
+- **Simple QR Code (Endroid or Laravel-Package)**
+- **Passport (for future API access, currently not in use)**
+
+## 🖥️ Pages
+
+- `/` - Seat selection and booking
+- `/login` & `/register` - Auth forms with validation
+- `/dashboard` - Admin panel for managing bookings and buses
+- `/verify/{ticket_number}` - Ticket status via QR code
+
+## 📂 Folder Structure Highlights
+
+```plaintext
+BUS-TICKETING-SYSTEM/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── AuthFormController.php
+│   │   │   ├── BookingController.php
+│   │   │   ├── BusController.php
+│   │   │   ├── BusViewController.php
+│   │   │   ├── Controller.php
+│   │   │   ├── DashboardController.php
+│   │   │   ├── ManageBookingController.php
+│   │   │   └── SeatController.php
+│   │   ├── Middleware/
+│   │   └── Requests/
+│   │       ├── LoginRequest.php
+│   │       ├── RegisterRequest.php
+│   │       ├── StoreBusRequest.php
+│   │       ├── StoreSeatRequest.php
+│   │       ├── UpdateBusRequest.php
+│   │       └── UpdateSeatRequest.php
+│   ├── Models/
+│   │   ├── Booking.php
+│   │   ├── Bus.php
+│   │   ├── Seat.php
+│   │   └── User.php
+│   ├── Providers/
+│   └── ... (Other standard App directories)
+├── bootstrap/
+│   ├── app.php
+│   └── cache/
+├── config/
+│   ├── app.php
+│   ├── auth.php
+│   ├── database.php
+│   ├── filesystems.php
+│   ├── mail.php
+│   ├── queue.php
+│   ├── services.php
+│   ├── session.php
+│   └── ... (Other config files)
+├── database/
+│   ├── factories
+│   ├── migrations/
+│   │   ├── 0001_01_01_000000_create_users_table.php
+│   │   ├── ... (Other standard migrations)
+│   │   ├── 2025_04_16_065018_create_buses_table.php
+│   │   ├── 2025_04_16_065045_create_seats_table.php
+│   │   ├── 2025_04_16_065102_create_bookings_table.php
+│   │   ├── ... (Other project-specific migrations)
+│   └── seeders/
+│       ├── BusSeeder.php
+│       ├── DatabaseSeeder.php
+│       └── SeatSeeder.php
+├── public/
+│   ├── css/
+│   ├── js/
+│   └── index.php
+├── resources/
+│   ├── css/
+│   ├── js/
+│   └── views/
+│       ├── admin/
+│       │   └── bookings/
+│       │       ├── index.blade.php
+│       │       └── show.blade.php
+│       ├── auth/
+│       │   ├── login.blade.php
+│       │   └── register.blade.php
+│       ├── buses/
+│       │   ├── create.blade.php
+│       │   ├── edit.blade.php
+│       │   ├── form.blade.php
+│       │   ├── index.blade.php
+│       │   └── show.blade.php
+│       ├── buses_view/
+│       │   ├── index.blade.php
+│       │   └── show.blade.php
+│       ├── dashboard/
+│       │   └── index.blade.php
+│       ├── layouts/
+│       │   ├── app.blade.php
+│       │   └── auth.blade.php
+│       ├── partials/
+│       │   └── ... (Shared view components)
+│       ├── seats/
+│       │   ├── create.blade.php
+│       │   ├── edit.blade.php
+│       │   └── index.blade.php
+│       ├── seats_view/
+│       │   └── index.blade.php
+│       ├── tickets/
+│       │   ├── pdf.blade.php
+│       │   └── verify.blade.php
+│       └── welcome.blade.php
+├── routes/
+│   ├── api.php
+│   ├── channels.php
+│   ├── console.php
+│   └── web.php
+├── storage/
+│   └── ... (Logs, framework files, app uploads)
+├── tests/
+│   └── ... (Feature and Unit tests)
+├── vendor/
+│   └── ... (Composer dependencies)
+├── .editorconfig
+├── .env
+├── .env.example
+├── .gitattributes
+├── .gitignore
+├── artisan
+├── composer.json
+├── composer.lock
+├── package.json
+├── phpunit.xml
+└── README.md
+```
+
+
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/Aaditya77700/bus-ticketing-system.git
+cd bus-ticketing-system
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
